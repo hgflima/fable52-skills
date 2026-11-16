@@ -29,14 +29,18 @@ Dois limites:
 ## Instalar
 
 ```bash
-claude plugin marketplace add /caminho/para/fable52-skills
+claude plugin marketplace add hgflima/fable52-skills
 claude plugin install fable52@hgflima-fable52
 ```
+
+Para instalar a partir de um clone local, troque a primeira linha por
+`claude plugin marketplace add /caminho/para/fable52-skills`.
 
 Para testar sem instalar:
 
 ```bash
-claude --plugin-dir /caminho/para/fable52-skills
+git clone https://github.com/hgflima/fable52-skills.git
+claude --plugin-dir fable52-skills
 ```
 
 ## Usar
