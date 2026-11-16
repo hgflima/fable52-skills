@@ -1,0 +1,60 @@
+{
+  "expectations": [
+    {
+      "text": "Clarifying questions were raised before writing the prompt (questions.md exists), and there are at most 3",
+      "passed": true,
+      "evidence": "questions.md has exactly 3 multiple-choice questions (decision, data location, reader)."
+    },
+    {
+      "text": "The generated prompt is written in English",
+      "passed": true,
+      "evidence": "Prompt opens 'Analyze our customer churn data and write a report…' and is English throughout."
+    },
+    {
+      "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+      "passed": true,
+      "evidence": "prompts/churn-data-analysis.md holds the prompt only."
+    },
+    {
+      "text": "The prompt says what the analysis is for (the decision or the reader it serves)",
+      "passed": true,
+      "evidence": "'I will use this analysis to decide where to focus retention work over the next few months.'"
+    },
+    {
+      "text": "The prompt states what the result must contain or how to check that the analysis is done",
+      "passed": true,
+      "evidence": "'The work is done when:' report.md exists and answers the questions, the script reproduces every number, the report states definition, period, and exclusions."
+    },
+    {
+      "text": "The prompt specifies the output format, its length, or its reader",
+      "passed": true,
+      "evidence": "'Write the report in Brazilian Portuguese and keep it to about three pages. Open with the three to five most important findings…'"
+    },
+    {
+      "text": "The prompt says where the data comes from (a path, a tag, or a marked slot) and does not invent data",
+      "passed": true,
+      "evidence": "'The data is at [FILL IN: the folder and file names, or the database and tables]'. No data invented."
+    },
+    {
+      "text": "The prompt does not ask the model to show step-by-step reasoning",
+      "passed": true,
+      "evidence": "Asks for the count behind each number, not for reasoning. The reply says so explicitly."
+    },
+    {
+      "text": "The reply lists the assumptions made",
+      "passed": true,
+      "evidence": "Reply has 'Suposições' with the three questions and five further assumptions."
+    },
+    {
+      "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+      "passed": true,
+      "evidence": "Reply: 'Effort: high. É uma análise exploratória com verificação dos números…'"
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  }
+}

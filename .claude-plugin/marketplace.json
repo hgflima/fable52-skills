@@ -1,0 +1,12 @@
+{
+  "name": "hgflima-fable52",
+  "description": "Skills para escrever prompts de tarefa para o Claude Fable 5.2.",
+  "owner": { "name": "hgflima" },
+  "plugins": [
+    {
+      "name": "fable52",
+      "source": "./",
+      "description": "Transforma um pedido solto em um prompt de tarefa pronto para colar no Claude Fable 5.2, seguindo o guia de prompting da Anthropic."
+    }
+  ]
+}

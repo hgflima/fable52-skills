@@ -1,0 +1,65 @@
+{
+  "expectations": [
+    {
+      "text": "The generated prompt is written in English",
+      "passed": false,
+      "evidence": "The prompt is in Portuguese: 'Quero que você refatore o módulo de pagamentos…'"
+    },
+    {
+      "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+      "passed": true,
+      "evidence": "prompt.md holds the prompt only. Note: the test instructions told this run to save prompt.md, so this check does not separate the two configurations."
+    },
+    {
+      "text": "The prompt contains the ownership sentence ('owner and long-term maintainer of this codebase')",
+      "passed": false,
+      "evidence": "No ownership sentence. It says 'O código é nosso e você tem liberdade para reestruturar', which presents the code as the user's, not as the model's own."
+    },
+    {
+      "text": "The prompt tells the model to keep working through ordinary obstacles and not stop early or offer to continue",
+      "passed": false,
+      "evidence": "Partly covered: 'Não pare esperando resposta' handles open questions. Nothing tells the model to work through errors, timeouts, or failing tools, and 'prefira um estado parcial consistente' gives it a reason to stop."
+    },
+    {
+      "text": "The prompt does not ask for live progress updates during the run (the run is unattended)",
+      "passed": true,
+      "evidence": "No live updates asked. It asks for a progress file for recovery, which is not a live update."
+    },
+    {
+      "text": "The prompt names specific actions the model must not take alone (for example push, deploy, migrations) and says what to do in their place since nobody is available",
+      "passed": true,
+      "evidence": "'Não faça push, não abra PR e não faça merge… Não altere o schema, não crie migrations… descreva a proposta no relatório.'"
+    },
+    {
+      "text": "The prompt asks for a final report that a reader who did not watch the run can follow",
+      "passed": true,
+      "evidence": "'Vou ler de manhã, sem lembrar dos detalhes e sem ter acompanhado nada, então ele precisa se sustentar sozinho.'"
+    },
+    {
+      "text": "The prompt states a definition of done that someone can check (for example tests pass, one source of tax calculation)",
+      "passed": true,
+      "evidence": "No single 'done' list, but checkable criteria are present: identical values per flow, characterization tests pass, full suite and linter compared with the baseline."
+    },
+    {
+      "text": "The prompt has no request to show reasoning, no token budget, and no blanket instruction to delegate to subagents",
+      "passed": true,
+      "evidence": "Automatic check: no <thinking> request, no token budget, no subagent instruction."
+    },
+    {
+      "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+      "passed": false,
+      "evidence": "The reply never mentions an effort level."
+    },
+    {
+      "text": "The reply warns the user about the cost or side effects of the ownership sentence (more tokens, unrequested changes, review the full diff)",
+      "passed": false,
+      "evidence": "No ownership sentence was used, so no warning about its cost."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 5,
+    "total": 11,
+    "pass_rate": 0.55
+  }
+}

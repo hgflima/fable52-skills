@@ -1,0 +1,19 @@
+{
+  "eval_id": 3,
+  "eval_name": "melhorar-prompt-antigo",
+  "prompt": "melhora esse prompt pra rodar no fable 5.2, ele foi escrito pro modelo antigo e tá se comportando estranho:\n\nYou are an expert engineer. CRITICAL: NEVER delete files. Think step by step and show your full reasoning in <thinking> tags before answering. Answer directly without deliberating. You have a budget of 200,000 tokens for this task. Use subagents for everything you can. Fix the flaky tests in the checkout service. Keep all sentences under 15 words.",
+  "assertions": [
+    "The rewritten prompt keeps the task: fix the flaky tests in the checkout service",
+    "The rewritten prompt is in English and is saved to a file (prompts/*.md or prompt.md)",
+    "The rewritten prompt has no request to show reasoning and no <thinking> tags instruction",
+    "The rewritten prompt has no 'answer directly without deliberating' line or equivalent",
+    "The rewritten prompt shows no token budget to the model",
+    "The rewritten prompt has no blanket instruction to use subagents",
+    "The rewritten prompt has no hard sentence-length limit",
+    "'NEVER delete files' is replaced by an approval rule or a scoped rule with a reason, not kept as an absolute ban",
+    "The rewritten prompt has no all-caps emphasis words (CRITICAL, NEVER, MUST)",
+    "The rewritten prompt adds a definition of done that someone can check for flaky tests (for example repeated runs pass)",
+    "The reply explains what was removed and why it matters on Fable 5.2",
+    "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason"
+  ]
+}

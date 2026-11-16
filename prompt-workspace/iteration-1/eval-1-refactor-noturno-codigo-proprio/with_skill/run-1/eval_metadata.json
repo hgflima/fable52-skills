@@ -1,0 +1,18 @@
+{
+  "eval_id": 1,
+  "eval_name": "refactor-noturno-codigo-proprio",
+  "prompt": "transforma isso num prompt pro fable 5.2: preciso refatorar o módulo de pagamentos do nosso monolito rails pra tirar a lógica duplicada de cálculo de imposto que tá espalhada em 4 services (app/services/billing/). o código é nosso, pode reestruturar o que precisar. quero deixar rodando de noite sem ninguém olhando e ver o resultado de manhã",
+  "assertions": [
+    "The generated prompt is written in English",
+    "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+    "The prompt contains the ownership sentence ('owner and long-term maintainer of this codebase')",
+    "The prompt tells the model to keep working through ordinary obstacles and not stop early or offer to continue",
+    "The prompt does not ask for live progress updates during the run (the run is unattended)",
+    "The prompt names specific actions the model must not take alone (for example push, deploy, migrations) and says what to do in their place since nobody is available",
+    "The prompt asks for a final report that a reader who did not watch the run can follow",
+    "The prompt states a definition of done that someone can check (for example tests pass, one source of tax calculation)",
+    "The prompt has no request to show reasoning, no token budget, and no blanket instruction to delegate to subagents",
+    "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+    "The reply warns the user about the cost or side effects of the ownership sentence (more tokens, unrequested changes, review the full diff)"
+  ]
+}

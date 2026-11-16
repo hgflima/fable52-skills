@@ -1,0 +1,70 @@
+{
+  "expectations": [
+    {
+      "text": "The rewritten prompt keeps the task: fix the flaky tests in the checkout service",
+      "passed": true,
+      "evidence": "Opens 'Fix the flaky tests in the checkout service.'"
+    },
+    {
+      "text": "The rewritten prompt is in English and is saved to a file (prompts/*.md or prompt.md)",
+      "passed": true,
+      "evidence": "Kept in English like the original, saved to prompt.md."
+    },
+    {
+      "text": "The rewritten prompt has no request to show reasoning and no <thinking> tags instruction",
+      "passed": true,
+      "evidence": "Both reasoning lines removed."
+    },
+    {
+      "text": "The rewritten prompt has no 'answer directly without deliberating' line or equivalent",
+      "passed": true,
+      "evidence": "Removed together with the reasoning line."
+    },
+    {
+      "text": "The rewritten prompt shows no token budget to the model",
+      "passed": true,
+      "evidence": "Token budget removed."
+    },
+    {
+      "text": "The rewritten prompt has no blanket instruction to use subagents",
+      "passed": true,
+      "evidence": "Narrowed to a condition: 'Use subagents only where the work is independent and can run in parallel'."
+    },
+    {
+      "text": "The rewritten prompt has no hard sentence-length limit",
+      "passed": true,
+      "evidence": "Replaced by a final-report format."
+    },
+    {
+      "text": "'NEVER delete files' is replaced by an approval rule or a scoped rule with a reason, not kept as an absolute ban",
+      "passed": true,
+      "evidence": "Scoped rule with an exception for temporary files and 'recommend the deletion in the report'. The reason is left as a slot: '[State the reason here…]'."
+    },
+    {
+      "text": "The rewritten prompt has no all-caps emphasis words (CRITICAL, NEVER, MUST)",
+      "passed": true,
+      "evidence": "Automatic check: no capitals for emphasis."
+    },
+    {
+      "text": "The rewritten prompt adds a definition of done that someone can check for flaky tests (for example repeated runs pass)",
+      "passed": true,
+      "evidence": "'run each fixed test at least 20 times in a row, then run the full checkout test suite once.'"
+    },
+    {
+      "text": "The reply explains what was removed and why it matters on Fable 5.2",
+      "passed": true,
+      "evidence": "A table explains each change. The reasons are general ('modelos recentes seguem instruções de forma mais literal'), and the token-budget reason is a guess that differs from Anthropic's finding."
+    },
+    {
+      "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+      "passed": false,
+      "evidence": "The reply never mentions an effort level."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 1,
+    "total": 12,
+    "pass_rate": 0.92
+  }
+}

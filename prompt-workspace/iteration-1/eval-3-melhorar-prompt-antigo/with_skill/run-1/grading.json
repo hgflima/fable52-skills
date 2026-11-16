@@ -1,0 +1,70 @@
+{
+  "expectations": [
+    {
+      "text": "The rewritten prompt keeps the task: fix the flaky tests in the checkout service",
+      "passed": true,
+      "evidence": "Opens 'Fix the flaky tests in the checkout service'."
+    },
+    {
+      "text": "The rewritten prompt is in English and is saved to a file (prompts/*.md or prompt.md)",
+      "passed": true,
+      "evidence": "English, saved to prompts/fix-flaky-checkout-tests.md."
+    },
+    {
+      "text": "The rewritten prompt has no request to show reasoning and no <thinking> tags instruction",
+      "passed": true,
+      "evidence": "No reasoning request. The recap asks for 'the cause and the evidence that showed it'."
+    },
+    {
+      "text": "The rewritten prompt has no 'answer directly without deliberating' line or equivalent",
+      "passed": true,
+      "evidence": "Line removed. The reply explains that it does not reduce thinking at medium effort or above."
+    },
+    {
+      "text": "The rewritten prompt shows no token budget to the model",
+      "passed": true,
+      "evidence": "Automatic check: the word 'token' is absent from the prompt."
+    },
+    {
+      "text": "The rewritten prompt has no blanket instruction to use subagents",
+      "passed": true,
+      "evidence": "Automatic check: the word 'subagent' is absent from the prompt."
+    },
+    {
+      "text": "The rewritten prompt has no hard sentence-length limit",
+      "passed": true,
+      "evidence": "No sentence-length rule. The recap contents are described in its place."
+    },
+    {
+      "text": "'NEVER delete files' is replaced by an approval rule or a scoped rule with a reason, not kept as an absolute ban",
+      "passed": true,
+      "evidence": "'Ask for my approval before you delete any file, and tell me which file and why. The exception is temporary files that you created during this task.'"
+    },
+    {
+      "text": "The rewritten prompt has no all-caps emphasis words (CRITICAL, NEVER, MUST)",
+      "passed": true,
+      "evidence": "Automatic check: no CRITICAL, NEVER, MUST, IMPORTANT, or ALWAYS in capitals."
+    },
+    {
+      "text": "The rewritten prompt adds a definition of done that someone can check for flaky tests (for example repeated runs pass)",
+      "passed": true,
+      "evidence": "'Every test you identified as flaky passes on many consecutive runs… a test that failed about 1 run in 20 needs about 100 clean runs.'"
+    },
+    {
+      "text": "The reply explains what was removed and why it matters on Fable 5.2",
+      "passed": true,
+      "evidence": "'Removido' lists seven items, each with the reason on Fable 5.2 (refusal of reasoning requests, budget changes spend, literal obedience to style limits, 'never' treated as absolute)."
+    },
+    {
+      "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+      "passed": true,
+      "evidence": "Reply: 'Effort: high. Achar a causa de uma falha intermitente é depuração difícil…'"
+    }
+  ],
+  "summary": {
+    "passed": 12,
+    "failed": 0,
+    "total": 12,
+    "pass_rate": 1.0
+  }
+}

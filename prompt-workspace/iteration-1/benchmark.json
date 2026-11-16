@@ -1,0 +1,512 @@
+{
+  "metadata": {
+    "skill_name": "fable52-prompt",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-11-16T14:04:39Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "time_seconds": 110.8,
+        "tokens": 79345,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The generated prompt is written in English",
+          "passed": true,
+          "evidence": "Prompt opens 'Refactor the payments code in this Rails monolith…' and is English throughout."
+        },
+        {
+          "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+          "passed": true,
+          "evidence": "prompts/refactor-billing-tax-calculation.md holds the prompt text only; it matches the fenced block in the reply."
+        },
+        {
+          "text": "The prompt contains the ownership sentence ('owner and long-term maintainer of this codebase')",
+          "passed": true,
+          "evidence": "Contains 'You are the owner and long-term maintainer of this codebase, and its design is up to you.'"
+        },
+        {
+          "text": "The prompt tells the model to keep working through ordinary obstacles and not stop early or offer to continue",
+          "passed": true,
+          "evidence": "Contains the full '# Finishing work' text, word for word."
+        },
+        {
+          "text": "The prompt does not ask for live progress updates during the run (the run is unattended)",
+          "passed": true,
+          "evidence": "No progress-update text. The prompt says 'I will leave this running overnight and will not be available'."
+        },
+        {
+          "text": "The prompt names specific actions the model must not take alone (for example push, deploy, migrations) and says what to do in their place since nobody is available",
+          "passed": true,
+          "evidence": "'Do not push the branch, open a pull request, or deploy… Do not send requests to the real payment gateway… If you conclude that it does [need a schema change], do not write the migration, and describe it in the report.'"
+        },
+        {
+          "text": "The prompt asks for a final report that a reader who did not watch the run can follow",
+          "passed": true,
+          "evidence": "'write a report as your final message that I can read in the morning without having watched the run', with required contents and length."
+        },
+        {
+          "text": "The prompt states a definition of done that someone can check (for example tests pass, one source of tax calculation)",
+          "passed": true,
+          "evidence": "'The work is done when:' with four checkable items (one implementation, characterization tests pass unchanged, full suite passes, no test deleted or skipped)."
+        },
+        {
+          "text": "The prompt has no request to show reasoning, no token budget, and no blanket instruction to delegate to subagents",
+          "passed": true,
+          "evidence": "Automatic check: no <thinking> request, the word 'token' is absent, 'subagent' is absent."
+        },
+        {
+          "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+          "passed": true,
+          "evidence": "Reply: 'Effort: high. É um refactor difícil, em código de cobrança, rodando a noite inteira…'"
+        },
+        {
+          "text": "The reply warns the user about the cost or side effects of the ownership sentence (more tokens, unrequested changes, review the full diff)",
+          "passed": true,
+          "evidence": "Reply cites 70 to 80% more output tokens, unrequested changes, and 'revise o diff completo de cada commit, não só o relatório'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 10,
+        "failed": 0,
+        "total": 10,
+        "time_seconds": 115.7,
+        "tokens": 79863,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Clarifying questions were raised before writing the prompt (questions.md exists), and there are at most 3",
+          "passed": true,
+          "evidence": "questions.md has exactly 3 multiple-choice questions (decision, data location, reader)."
+        },
+        {
+          "text": "The generated prompt is written in English",
+          "passed": true,
+          "evidence": "Prompt opens 'Analyze our customer churn data and write a report…' and is English throughout."
+        },
+        {
+          "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+          "passed": true,
+          "evidence": "prompts/churn-data-analysis.md holds the prompt only."
+        },
+        {
+          "text": "The prompt says what the analysis is for (the decision or the reader it serves)",
+          "passed": true,
+          "evidence": "'I will use this analysis to decide where to focus retention work over the next few months.'"
+        },
+        {
+          "text": "The prompt states what the result must contain or how to check that the analysis is done",
+          "passed": true,
+          "evidence": "'The work is done when:' report.md exists and answers the questions, the script reproduces every number, the report states definition, period, and exclusions."
+        },
+        {
+          "text": "The prompt specifies the output format, its length, or its reader",
+          "passed": true,
+          "evidence": "'Write the report in Brazilian Portuguese and keep it to about three pages. Open with the three to five most important findings…'"
+        },
+        {
+          "text": "The prompt says where the data comes from (a path, a tag, or a marked slot) and does not invent data",
+          "passed": true,
+          "evidence": "'The data is at [FILL IN: the folder and file names, or the database and tables]'. No data invented."
+        },
+        {
+          "text": "The prompt does not ask the model to show step-by-step reasoning",
+          "passed": true,
+          "evidence": "Asks for the count behind each number, not for reasoning. The reply says so explicitly."
+        },
+        {
+          "text": "The reply lists the assumptions made",
+          "passed": true,
+          "evidence": "Reply has 'Suposições' with the three questions and five further assumptions."
+        },
+        {
+          "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+          "passed": true,
+          "evidence": "Reply: 'Effort: high. É uma análise exploratória com verificação dos números…'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 12,
+        "failed": 0,
+        "total": 12,
+        "time_seconds": 114.6,
+        "tokens": 78961,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The rewritten prompt keeps the task: fix the flaky tests in the checkout service",
+          "passed": true,
+          "evidence": "Opens 'Fix the flaky tests in the checkout service'."
+        },
+        {
+          "text": "The rewritten prompt is in English and is saved to a file (prompts/*.md or prompt.md)",
+          "passed": true,
+          "evidence": "English, saved to prompts/fix-flaky-checkout-tests.md."
+        },
+        {
+          "text": "The rewritten prompt has no request to show reasoning and no <thinking> tags instruction",
+          "passed": true,
+          "evidence": "No reasoning request. The recap asks for 'the cause and the evidence that showed it'."
+        },
+        {
+          "text": "The rewritten prompt has no 'answer directly without deliberating' line or equivalent",
+          "passed": true,
+          "evidence": "Line removed. The reply explains that it does not reduce thinking at medium effort or above."
+        },
+        {
+          "text": "The rewritten prompt shows no token budget to the model",
+          "passed": true,
+          "evidence": "Automatic check: the word 'token' is absent from the prompt."
+        },
+        {
+          "text": "The rewritten prompt has no blanket instruction to use subagents",
+          "passed": true,
+          "evidence": "Automatic check: the word 'subagent' is absent from the prompt."
+        },
+        {
+          "text": "The rewritten prompt has no hard sentence-length limit",
+          "passed": true,
+          "evidence": "No sentence-length rule. The recap contents are described in its place."
+        },
+        {
+          "text": "'NEVER delete files' is replaced by an approval rule or a scoped rule with a reason, not kept as an absolute ban",
+          "passed": true,
+          "evidence": "'Ask for my approval before you delete any file, and tell me which file and why. The exception is temporary files that you created during this task.'"
+        },
+        {
+          "text": "The rewritten prompt has no all-caps emphasis words (CRITICAL, NEVER, MUST)",
+          "passed": true,
+          "evidence": "Automatic check: no CRITICAL, NEVER, MUST, IMPORTANT, or ALWAYS in capitals."
+        },
+        {
+          "text": "The rewritten prompt adds a definition of done that someone can check for flaky tests (for example repeated runs pass)",
+          "passed": true,
+          "evidence": "'Every test you identified as flaky passes on many consecutive runs… a test that failed about 1 run in 20 needs about 100 clean runs.'"
+        },
+        {
+          "text": "The reply explains what was removed and why it matters on Fable 5.2",
+          "passed": true,
+          "evidence": "'Removido' lists seven items, each with the reason on Fable 5.2 (refusal of reasoning requests, budget changes spend, literal obedience to style limits, 'never' treated as absolute)."
+        },
+        {
+          "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+          "passed": true,
+          "evidence": "Reply: 'Effort: high. Achar a causa de uma falha intermitente é depuração difícil…'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.55,
+        "passed": 6,
+        "failed": 5,
+        "total": 11,
+        "time_seconds": 92.8,
+        "tokens": 59993,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The generated prompt is written in English",
+          "passed": false,
+          "evidence": "The prompt is in Portuguese: 'Quero que você refatore o módulo de pagamentos…'"
+        },
+        {
+          "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+          "passed": true,
+          "evidence": "prompt.md holds the prompt only. Note: the test instructions told this run to save prompt.md, so this check does not separate the two configurations."
+        },
+        {
+          "text": "The prompt contains the ownership sentence ('owner and long-term maintainer of this codebase')",
+          "passed": false,
+          "evidence": "No ownership sentence. It says 'O código é nosso e você tem liberdade para reestruturar', which presents the code as the user's, not as the model's own."
+        },
+        {
+          "text": "The prompt tells the model to keep working through ordinary obstacles and not stop early or offer to continue",
+          "passed": false,
+          "evidence": "Partly covered: 'Não pare esperando resposta' handles open questions. Nothing tells the model to work through errors, timeouts, or failing tools, and 'prefira um estado parcial consistente' gives it a reason to stop."
+        },
+        {
+          "text": "The prompt does not ask for live progress updates during the run (the run is unattended)",
+          "passed": true,
+          "evidence": "No live updates asked. It asks for a progress file for recovery, which is not a live update."
+        },
+        {
+          "text": "The prompt names specific actions the model must not take alone (for example push, deploy, migrations) and says what to do in their place since nobody is available",
+          "passed": true,
+          "evidence": "'Não faça push, não abra PR e não faça merge… Não altere o schema, não crie migrations… descreva a proposta no relatório.'"
+        },
+        {
+          "text": "The prompt asks for a final report that a reader who did not watch the run can follow",
+          "passed": true,
+          "evidence": "'Vou ler de manhã, sem lembrar dos detalhes e sem ter acompanhado nada, então ele precisa se sustentar sozinho.'"
+        },
+        {
+          "text": "The prompt states a definition of done that someone can check (for example tests pass, one source of tax calculation)",
+          "passed": true,
+          "evidence": "No single 'done' list, but checkable criteria are present: identical values per flow, characterization tests pass, full suite and linter compared with the baseline."
+        },
+        {
+          "text": "The prompt has no request to show reasoning, no token budget, and no blanket instruction to delegate to subagents",
+          "passed": true,
+          "evidence": "Automatic check: no <thinking> request, no token budget, no subagent instruction."
+        },
+        {
+          "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+          "passed": false,
+          "evidence": "The reply never mentions an effort level."
+        },
+        {
+          "text": "The reply warns the user about the cost or side effects of the ownership sentence (more tokens, unrequested changes, review the full diff)",
+          "passed": false,
+          "evidence": "No ownership sentence was used, so no warning about its cost."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 8,
+        "failed": 2,
+        "total": 10,
+        "time_seconds": 94.2,
+        "tokens": 60144,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Clarifying questions were raised before writing the prompt (questions.md exists), and there are at most 3",
+          "passed": true,
+          "evidence": "questions.md has exactly 3 questions."
+        },
+        {
+          "text": "The generated prompt is written in English",
+          "passed": false,
+          "evidence": "The prompt is in Portuguese: 'Preciso que você analise os dados de churn de [EMPRESA/PRODUTO]…'"
+        },
+        {
+          "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+          "passed": true,
+          "evidence": "prompt.md holds the prompt only. The test instructions asked for this file, so this check does not separate the two configurations."
+        },
+        {
+          "text": "The prompt says what the analysis is for (the decision or the reader it serves)",
+          "passed": true,
+          "evidence": "Present as a slot for the user to fill: 'Esta análise vai servir para [DECISÃO…]. Quem vai ler é [PÚBLICO…]'."
+        },
+        {
+          "text": "The prompt states what the result must contain or how to check that the analysis is done",
+          "passed": true,
+          "evidence": "'O que entregar' lists four required parts of the report plus the code."
+        },
+        {
+          "text": "The prompt specifies the output format, its length, or its reader",
+          "passed": true,
+          "evidence": "'Um relatório em português, escrito para o público descrito acima, nesta ordem: 1. Conclusões principais, de 3 a 5…'"
+        },
+        {
+          "text": "The prompt says where the data comes from (a path, a tag, or a marked slot) and does not invent data",
+          "passed": true,
+          "evidence": "'[Onde estão: arquivos anexados, caminho no disco ou tabelas do banco…]' and an explicit ban on illustrative numbers."
+        },
+        {
+          "text": "The prompt does not ask the model to show step-by-step reasoning",
+          "passed": true,
+          "evidence": "Asks for executed calculations, not for step-by-step reasoning."
+        },
+        {
+          "text": "The reply lists the assumptions made",
+          "passed": true,
+          "evidence": "Reply has 'O que eu assumi' with four assumptions."
+        },
+        {
+          "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+          "passed": false,
+          "evidence": "The reply never mentions an effort level."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.92,
+        "passed": 11,
+        "failed": 1,
+        "total": 12,
+        "time_seconds": 67.5,
+        "tokens": 52280,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The rewritten prompt keeps the task: fix the flaky tests in the checkout service",
+          "passed": true,
+          "evidence": "Opens 'Fix the flaky tests in the checkout service.'"
+        },
+        {
+          "text": "The rewritten prompt is in English and is saved to a file (prompts/*.md or prompt.md)",
+          "passed": true,
+          "evidence": "Kept in English like the original, saved to prompt.md."
+        },
+        {
+          "text": "The rewritten prompt has no request to show reasoning and no <thinking> tags instruction",
+          "passed": true,
+          "evidence": "Both reasoning lines removed."
+        },
+        {
+          "text": "The rewritten prompt has no 'answer directly without deliberating' line or equivalent",
+          "passed": true,
+          "evidence": "Removed together with the reasoning line."
+        },
+        {
+          "text": "The rewritten prompt shows no token budget to the model",
+          "passed": true,
+          "evidence": "Token budget removed."
+        },
+        {
+          "text": "The rewritten prompt has no blanket instruction to use subagents",
+          "passed": true,
+          "evidence": "Narrowed to a condition: 'Use subagents only where the work is independent and can run in parallel'."
+        },
+        {
+          "text": "The rewritten prompt has no hard sentence-length limit",
+          "passed": true,
+          "evidence": "Replaced by a final-report format."
+        },
+        {
+          "text": "'NEVER delete files' is replaced by an approval rule or a scoped rule with a reason, not kept as an absolute ban",
+          "passed": true,
+          "evidence": "Scoped rule with an exception for temporary files and 'recommend the deletion in the report'. The reason is left as a slot: '[State the reason here…]'."
+        },
+        {
+          "text": "The rewritten prompt has no all-caps emphasis words (CRITICAL, NEVER, MUST)",
+          "passed": true,
+          "evidence": "Automatic check: no capitals for emphasis."
+        },
+        {
+          "text": "The rewritten prompt adds a definition of done that someone can check for flaky tests (for example repeated runs pass)",
+          "passed": true,
+          "evidence": "'run each fixed test at least 20 times in a row, then run the full checkout test suite once.'"
+        },
+        {
+          "text": "The reply explains what was removed and why it matters on Fable 5.2",
+          "passed": true,
+          "evidence": "A table explains each change. The reasons are general ('modelos recentes seguem instruções de forma mais literal'), and the token-budget reason is a guess that differs from Anthropic's finding."
+        },
+        {
+          "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+          "passed": false,
+          "evidence": "The reply never mentions an effort level."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 113.7,
+        "stddev": 2.571,
+        "min": 110.8,
+        "max": 115.7
+      },
+      "tokens": {
+        "mean": 79389.6667,
+        "stddev": 452.6559,
+        "min": 78961,
+        "max": 79863
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7567,
+        "stddev": 0.1888,
+        "min": 0.55,
+        "max": 0.92
+      },
+      "time_seconds": {
+        "mean": 84.8333,
+        "stddev": 15.0274,
+        "min": 67.5,
+        "max": 94.2
+      },
+      "tokens": {
+        "mean": 57472.3333,
+        "stddev": 4497.3264,
+        "min": 52280,
+        "max": 60144
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.24",
+      "time_seconds": "+28.9",
+      "tokens": "+21917"
+    }
+  },
+  "notes": [
+    "Uma execução por configuração: não há medida de variância. As diferenças pequenas podem ser ruído.",
+    "As verificações medem o que você pediu da skill (inglês, effort, textos do guia do Fable 5.2). Elas não medem a qualidade geral do prompt, e os prompts sem a skill também são bons nisso. Leia os prompts lado a lado antes de confiar no placar.",
+    "Sem a skill, as 8 falhas são: prompt em português (2 de 3 casos), nenhuma recomendação de effort (3 de 3), sem a frase de ownership, sem o texto de 'Finishing work' e sem aviso de custo (caso 1).",
+    "Verificação que não separa as configurações: 'arquivo salvo só com o prompt'. As instruções do teste pediram esse arquivo também na execução sem a skill.",
+    "Caso 3: sem a skill, as seis linhas problemáticas também foram removidas. A skill acrescentou o effort, os motivos tirados do guia da Anthropic e o texto de progresso. A explicação sem a skill para o orçamento de tokens é um palpite diferente do que a Anthropic mediu.",
+    "Custo da skill: cerca de 79 mil tokens e 114 s por execução, contra 57 mil tokens e 85 s sem ela (cerca de 38% mais tokens).",
+    "Caso 2 com a skill deixou dois trechos [FILL IN]. Isso aconteceu porque ninguém pôde responder às perguntas no teste. No uso real as respostas preenchem esses trechos.",
+    "As três execuções com a skill relataram pontos ambíguos nas instruções: sem padrão quando não se sabe se alguém acompanha a execução; tabela e exemplos discordam sobre o texto 'Communicating clearly'; nada sobre o idioma do resultado; nada sobre o que fazer sem repositório."
+  ]
+}

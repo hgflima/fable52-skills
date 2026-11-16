@@ -1,0 +1,65 @@
+{
+  "expectations": [
+    {
+      "text": "The generated prompt is written in English",
+      "passed": true,
+      "evidence": "Prompt opens 'Refactor the payments code in this Rails monolith…' and is English throughout."
+    },
+    {
+      "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+      "passed": true,
+      "evidence": "prompts/refactor-billing-tax-calculation.md holds the prompt text only; it matches the fenced block in the reply."
+    },
+    {
+      "text": "The prompt contains the ownership sentence ('owner and long-term maintainer of this codebase')",
+      "passed": true,
+      "evidence": "Contains 'You are the owner and long-term maintainer of this codebase, and its design is up to you.'"
+    },
+    {
+      "text": "The prompt tells the model to keep working through ordinary obstacles and not stop early or offer to continue",
+      "passed": true,
+      "evidence": "Contains the full '# Finishing work' text, word for word."
+    },
+    {
+      "text": "The prompt does not ask for live progress updates during the run (the run is unattended)",
+      "passed": true,
+      "evidence": "No progress-update text. The prompt says 'I will leave this running overnight and will not be available'."
+    },
+    {
+      "text": "The prompt names specific actions the model must not take alone (for example push, deploy, migrations) and says what to do in their place since nobody is available",
+      "passed": true,
+      "evidence": "'Do not push the branch, open a pull request, or deploy… Do not send requests to the real payment gateway… If you conclude that it does [need a schema change], do not write the migration, and describe it in the report.'"
+    },
+    {
+      "text": "The prompt asks for a final report that a reader who did not watch the run can follow",
+      "passed": true,
+      "evidence": "'write a report as your final message that I can read in the morning without having watched the run', with required contents and length."
+    },
+    {
+      "text": "The prompt states a definition of done that someone can check (for example tests pass, one source of tax calculation)",
+      "passed": true,
+      "evidence": "'The work is done when:' with four checkable items (one implementation, characterization tests pass unchanged, full suite passes, no test deleted or skipped)."
+    },
+    {
+      "text": "The prompt has no request to show reasoning, no token budget, and no blanket instruction to delegate to subagents",
+      "passed": true,
+      "evidence": "Automatic check: no <thinking> request, the word 'token' is absent, 'subagent' is absent."
+    },
+    {
+      "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+      "passed": true,
+      "evidence": "Reply: 'Effort: high. É um refactor difícil, em código de cobrança, rodando a noite inteira…'"
+    },
+    {
+      "text": "The reply warns the user about the cost or side effects of the ownership sentence (more tokens, unrequested changes, review the full diff)",
+      "passed": true,
+      "evidence": "Reply cites 70 to 80% more output tokens, unrequested changes, and 'revise o diff completo de cada commit, não só o relatório'."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  }
+}

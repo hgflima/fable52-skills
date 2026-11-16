@@ -1,0 +1,60 @@
+{
+  "expectations": [
+    {
+      "text": "Clarifying questions were raised before writing the prompt (questions.md exists), and there are at most 3",
+      "passed": true,
+      "evidence": "questions.md has exactly 3 questions."
+    },
+    {
+      "text": "The generated prompt is written in English",
+      "passed": false,
+      "evidence": "The prompt is in Portuguese: 'Preciso que você analise os dados de churn de [EMPRESA/PRODUTO]…'"
+    },
+    {
+      "text": "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+      "passed": true,
+      "evidence": "prompt.md holds the prompt only. The test instructions asked for this file, so this check does not separate the two configurations."
+    },
+    {
+      "text": "The prompt says what the analysis is for (the decision or the reader it serves)",
+      "passed": true,
+      "evidence": "Present as a slot for the user to fill: 'Esta análise vai servir para [DECISÃO…]. Quem vai ler é [PÚBLICO…]'."
+    },
+    {
+      "text": "The prompt states what the result must contain or how to check that the analysis is done",
+      "passed": true,
+      "evidence": "'O que entregar' lists four required parts of the report plus the code."
+    },
+    {
+      "text": "The prompt specifies the output format, its length, or its reader",
+      "passed": true,
+      "evidence": "'Um relatório em português, escrito para o público descrito acima, nesta ordem: 1. Conclusões principais, de 3 a 5…'"
+    },
+    {
+      "text": "The prompt says where the data comes from (a path, a tag, or a marked slot) and does not invent data",
+      "passed": true,
+      "evidence": "'[Onde estão: arquivos anexados, caminho no disco ou tabelas do banco…]' and an explicit ban on illustrative numbers."
+    },
+    {
+      "text": "The prompt does not ask the model to show step-by-step reasoning",
+      "passed": true,
+      "evidence": "Asks for executed calculations, not for step-by-step reasoning."
+    },
+    {
+      "text": "The reply lists the assumptions made",
+      "passed": true,
+      "evidence": "Reply has 'O que eu assumi' with four assumptions."
+    },
+    {
+      "text": "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+      "passed": false,
+      "evidence": "The reply never mentions an effort level."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 2,
+    "total": 10,
+    "pass_rate": 0.8
+  }
+}

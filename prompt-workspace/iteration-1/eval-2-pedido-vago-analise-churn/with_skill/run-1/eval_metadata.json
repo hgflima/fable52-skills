@@ -1,0 +1,17 @@
+{
+  "eval_id": 2,
+  "eval_name": "pedido-vago-analise-churn",
+  "prompt": "cria um prompt pra analisar os dados de churn",
+  "assertions": [
+    "Clarifying questions were raised before writing the prompt (questions.md exists), and there are at most 3",
+    "The generated prompt is written in English",
+    "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+    "The prompt says what the analysis is for (the decision or the reader it serves)",
+    "The prompt states what the result must contain or how to check that the analysis is done",
+    "The prompt specifies the output format, its length, or its reader",
+    "The prompt says where the data comes from (a path, a tag, or a marked slot) and does not invent data",
+    "The prompt does not ask the model to show step-by-step reasoning",
+    "The reply lists the assumptions made",
+    "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason"
+  ]
+}

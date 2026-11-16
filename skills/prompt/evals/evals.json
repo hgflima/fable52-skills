@@ -1,0 +1,65 @@
+{
+  "skill_name": "prompt",
+  "evals": [
+    {
+      "id": 1,
+      "name": "refactor-noturno-codigo-proprio",
+      "prompt": "transforma isso num prompt pro fable 5.2: preciso refatorar o módulo de pagamentos do nosso monolito rails pra tirar a lógica duplicada de cálculo de imposto que tá espalhada em 4 services (app/services/billing/). o código é nosso, pode reestruturar o que precisar. quero deixar rodando de noite sem ninguém olhando e ver o resultado de manhã",
+      "expected_output": "Prompt de tarefa em inglês com a frase de ownership, o texto de 'Finishing work', sem pedido de updates ao vivo, ações de risco nomeadas, relatório final autossuficiente; effort high recomendado; arquivo salvo em prompts/.",
+      "files": [],
+      "assertions": [
+        "The generated prompt is written in English",
+        "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+        "The prompt contains the ownership sentence ('owner and long-term maintainer of this codebase')",
+        "The prompt tells the model to keep working through ordinary obstacles and not stop early or offer to continue",
+        "The prompt does not ask for live progress updates during the run (the run is unattended)",
+        "The prompt names specific actions the model must not take alone (for example push, deploy, migrations) and says what to do in their place since nobody is available",
+        "The prompt asks for a final report that a reader who did not watch the run can follow",
+        "The prompt states a definition of done that someone can check (for example tests pass, one source of tax calculation)",
+        "The prompt has no request to show reasoning, no token budget, and no blanket instruction to delegate to subagents",
+        "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason",
+        "The reply warns the user about the cost or side effects of the ownership sentence (more tokens, unrequested changes, review the full diff)"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "pedido-vago-analise-churn",
+      "prompt": "cria um prompt pra analisar os dados de churn",
+      "expected_output": "Até 3 perguntas curtas antes de gerar; depois um prompt de tarefa em inglês com objetivo, critério de pronto e formato do resultado; suposições listadas; effort recomendado; arquivo salvo.",
+      "files": [],
+      "assertions": [
+        "Clarifying questions were raised before writing the prompt (questions.md exists), and there are at most 3",
+        "The generated prompt is written in English",
+        "A prompt file is saved (prompts/*.md or prompt.md) and holds only the prompt, with no notes around it",
+        "The prompt says what the analysis is for (the decision or the reader it serves)",
+        "The prompt states what the result must contain or how to check that the analysis is done",
+        "The prompt specifies the output format, its length, or its reader",
+        "The prompt says where the data comes from (a path, a tag, or a marked slot) and does not invent data",
+        "The prompt does not ask the model to show step-by-step reasoning",
+        "The reply lists the assumptions made",
+        "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "melhorar-prompt-antigo",
+      "prompt": "melhora esse prompt pra rodar no fable 5.2, ele foi escrito pro modelo antigo e tá se comportando estranho:\n\nYou are an expert engineer. CRITICAL: NEVER delete files. Think step by step and show your full reasoning in <thinking> tags before answering. Answer directly without deliberating. You have a budget of 200,000 tokens for this task. Use subagents for everything you can. Fix the flaky tests in the checkout service. Keep all sentences under 15 words.",
+      "expected_output": "Prompt reescrito em inglês que mantém a tarefa (flaky tests do checkout) e remove: reasoning em <thinking>, 'answer directly', orçamento de tokens, delegação geral, limite de 15 palavras, maiúsculas; 'NEVER delete files' vira aprovação ou regra com escopo; notas explicam cada remoção; effort recomendado.",
+      "files": [],
+      "assertions": [
+        "The rewritten prompt keeps the task: fix the flaky tests in the checkout service",
+        "The rewritten prompt is in English and is saved to a file (prompts/*.md or prompt.md)",
+        "The rewritten prompt has no request to show reasoning and no <thinking> tags instruction",
+        "The rewritten prompt has no 'answer directly without deliberating' line or equivalent",
+        "The rewritten prompt shows no token budget to the model",
+        "The rewritten prompt has no blanket instruction to use subagents",
+        "The rewritten prompt has no hard sentence-length limit",
+        "'NEVER delete files' is replaced by an approval rule or a scoped rule with a reason, not kept as an absolute ban",
+        "The rewritten prompt has no all-caps emphasis words (CRITICAL, NEVER, MUST)",
+        "The rewritten prompt adds a definition of done that someone can check for flaky tests (for example repeated runs pass)",
+        "The reply explains what was removed and why it matters on Fable 5.2",
+        "The reply recommends one Fable 5.2 effort level (low, medium, high, xhigh, or max) with a reason"
+      ]
+    }
+  ]
+}
